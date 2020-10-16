@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Puppy</string>
+    <string name="titulo">Puppy App</string>
+    <string name="BottomButton">Ingresar</string>
+</resources>
