@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MisContactos</string>
+    <string name="NombreContacto">Anahí Salgado</string>
+    <string name="TelefonoContacto">55557777</string>
+    <string name="EmailContacto">anahi@gmail.com</string>
+    <string name="pnombre">Nombre</string>
+    <string name="ptelefono">Telefono</string>
+    <string name="pemail">Email</string>
+</resources>

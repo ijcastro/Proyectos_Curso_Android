@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiNombreCompleto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tiNombreCompleto"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <RelativeLayout
+            android:id="@+id/RelLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tiNombreCompleto">
+
+                <TextView
+                    android:id="@+id/tvFechaNacimiento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tvTitulo"
+                    android:textSize="18sp"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <DatePicker
+                    android:id="@+id/dpFecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
+                    android:elevation="15dp"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dpFecha"
+                    android:text="@string/btnOk"
+                    android:layout_alignLeft="@id/dpFecha"
+                    android:layout_alignRight="@id/dpFecha"
+                    android:saveEnabled="true"/>
+
+        </RelativeLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tiTelefono"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/RelLay"
+            />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tiEmail"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tiTelefono"
+            />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiDescripcionContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tiDescripcionContacto"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tiEmail"
+            />
+
+        <Button
+            android:id="@+id/btnSiguiente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnSiguiente"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:elevation="15dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

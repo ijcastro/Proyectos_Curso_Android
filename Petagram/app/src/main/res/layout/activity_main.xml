@@ -1,16 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".MainActivity"
+    android:background="@color/colorFondoConstraintLayout">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/sfiMiIndicadorRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sfi_height"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ListView
+            android:id="@+id/lvMiLista"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lvMiLista_height">
+        </ListView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView
+        android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="356dp" />
+        android:text="@string/texto_titulo"
+        app:layout_constraintTop_toBottomOf="@id/sfiMiIndicadorRefresh"/>
+
+    <Button
+        android:id="@+id/btnMiBoton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+        android:text="@string/texto_boton_click"
+        android:theme="@style/MiBotonRaised"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMiFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_star"
+        app:layout_constraintTop_toBottomOf="@id/btnMiBoton"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvTarjeta"
+        android:layout_width="@dimen/cvTarjeta_width"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/fabMiFAB"
+        app:cardCornerRadius="16dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivCVFondo"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/lollipop" />
+
+            <TextView
+                android:id="@+id/tvCVTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/CVTitulo"
+                android:layout_below="@id/ivCVFondo"
+                android:textStyle="bold"
+                android:textSize="@dimen/cvTVTitulo"/>
+
+            <TextView
+                android:id="@+id/tvCVDescripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/CVDescripcion"
+                android:layout_below="@id/tvCVTitulo"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

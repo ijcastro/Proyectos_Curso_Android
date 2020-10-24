@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tvContacto">30sp</dimen>
+    <dimen name="tvTelefono">20sp</dimen>
+    <dimen name="linearMarginTop">20dp</dimen>
+    <dimen name="tvMarginStart">10dp</dimen>
+</resources>
