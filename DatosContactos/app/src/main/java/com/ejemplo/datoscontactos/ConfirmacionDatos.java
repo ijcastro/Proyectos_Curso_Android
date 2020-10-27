@@ -15,6 +15,9 @@ public class ConfirmacionDatos extends AppCompatActivity {
     private TextView tvConfTelefono;
     private TextView tvConfEmail;
     private TextView tvConfDescripcion;
+    private String diaFecha;
+    private String mesFecha;
+    private String añoFecha;
     Button btnEditar;
 
     @Override
@@ -24,7 +27,9 @@ public class ConfirmacionDatos extends AppCompatActivity {
 
         Bundle parametros = getIntent().getExtras();
         String nombre = parametros.getString("nombre");
-        String fecha = parametros.getString("fecha");
+        diaFecha = parametros.getString("diaFecha");
+        mesFecha = parametros.getString("mesFecha");
+        añoFecha = parametros.getString("añoFecha");
         String telefono = parametros.getString("telefono");
         String email = parametros.getString("email");
         String descripcion = parametros.getString("descripcion");
@@ -36,7 +41,7 @@ public class ConfirmacionDatos extends AppCompatActivity {
         tvConfDescripcion = (TextView)findViewById(R.id.tvConfDescripcion);
 
         tvConfNombre.setText(nombre);
-        tvConfFecha.setText(fecha);
+        tvConfFecha.setText("Nacimiento: " + diaFecha + "/" + mesFecha + "/" + añoFecha);
         tvConfTelefono.setText(telefono);
         tvConfEmail.setText(email);
         tvConfDescripcion.setText(descripcion);

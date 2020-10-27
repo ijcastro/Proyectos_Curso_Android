@@ -1,6 +1,8 @@
 package com.ejemplo.miscontactos;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,25 +16,28 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     //Atributos:
     ArrayList<Contacto> contactos;
+    private RecyclerView listaContactos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        contactos = new ArrayList<>();
 
-        contactos.add(new Contacto("Anahi Salgado", "77779999", "anahi@gmail.com"));
-        contactos.add(new Contacto("Pedro Sanchez", "88882222", "pedro@gmail.com"));
-        contactos.add(new Contacto("Mireya Martinez", "33331111", "mireya@gmail.com"));
-        contactos.add(new Contacto("Juan Lopez", "44442222", "juan@gmail.com"));
+        listaContactos = (RecyclerView)findViewById(R.id.rvContactos);
 
-        ArrayList<String> nombres = new ArrayList<>();
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
 
+        listaContactos.setLayoutManager(llm);
+        inicializarListaContactos();
+        inicializarAdaptador();
+
+        /*ArrayList<String> nombres = new ArrayList<>();
         for (Contacto x:contactos) {
             nombres.add(x.getNombre());
-        }
+        }*/
 
-        ListView lvContactos = (ListView) findViewById(R.id.lvContactos);
+        /*ListView lvContactos = (ListView) findViewById(R.id.lvContactos);
         lvContactos.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombres));
 
         lvContactos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -45,8 +50,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        });
+        });*/
 
 
+
+    }
+
+    public void inicializarListaContactos(){
+        contactos = new ArrayList<>();
+        contactos.add(new Contacto("Anahi Salgado", "77779999", "anahi@gmail.com", R.drawable.contacto1));
+        contactos.add(new Contacto("Pedro Sanchez", "88882222", "pedro@gmail.com", R.drawable.contacto2));
+        contactos.add(new Contacto("Mireya Martinez", "33331111", "mireya@gmail.com", R.drawable.contacto3));
+        contactos.add(new Contacto("Juan Lopez", "44442222", "juan@gmail.com", R.drawable.contacto4));
+    }
+
+    public void inicializarAdaptador(){
+        ContactoAdaptador adaptador = new ContactoAdaptador(contactos);
+        listaContactos.setAdapter(adaptador);
+        
     }
 }

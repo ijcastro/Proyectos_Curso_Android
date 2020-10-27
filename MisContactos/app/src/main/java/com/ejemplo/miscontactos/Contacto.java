@@ -5,12 +5,14 @@ public class Contacto {
     private String nombre;
     private String telefono;
     private String email;
+    private int foto;
 
     //Constructor:
-    public Contacto(String nombre, String telefono, String email) {
+    public Contacto(String nombre, String telefono, String email, int foto) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.email = email;
+        this.foto = foto;
     }
 
     //Getters y Setters:
@@ -38,5 +40,11 @@ public class Contacto {
         this.email = email;
     }
 
+    public int getFoto() {
+        return foto;
+    }
 
+    public void setFoto(int foto) {
+        this.foto = foto;
+    }
 }

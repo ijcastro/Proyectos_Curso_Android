@@ -4,4 +4,6 @@
     <dimen name="tvTelefono">20sp</dimen>
     <dimen name="linearMarginTop">20dp</dimen>
     <dimen name="tvMarginStart">10dp</dimen>
+    <dimen name="cvCornerRadius">16dp</dimen>
+    <dimen name="tvNombreContacto2">20sp</dimen>
 </resources>

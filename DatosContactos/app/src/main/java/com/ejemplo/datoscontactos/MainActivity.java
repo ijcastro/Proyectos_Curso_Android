@@ -11,14 +11,12 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         DatePicker fecha = (DatePicker)findViewById(R.id.dpFecha);
-        String fechaNac = "Nacimiento: " + fecha.getDayOfMonth() + "/" + ((fecha.getMonth())+1) + "/" + fecha.getYear();
 
         EditText nombre = (EditText)findViewById(R.id.tiNombreCompleto);
         EditText telefono = (EditText)findViewById(R.id.tiTelefono);
@@ -30,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ConfirmacionDatos.class);
-                intent.putExtra("fecha", fechaNac);
                 intent.putExtra("nombre", nombre.getText().toString());
                 intent.putExtra("telefono", telefono.getText().toString());
                 intent.putExtra("email", email.getText().toString());
                 intent.putExtra("descripcion", descripcion.getText().toString());
+                intent.putExtra("diaFecha", String.valueOf(fecha.getDayOfMonth()));
+                intent.putExtra("mesFecha", String.valueOf(fecha.getMonth()+1));
+                intent.putExtra("añoFecha", String.valueOf(fecha.getYear()));
                 startActivity(intent);
                 finish();
             }
