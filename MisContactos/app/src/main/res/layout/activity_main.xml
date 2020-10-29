@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include android:id="@+id/miActionBar"
+        layout="@layout/actionbar">
+    </include>
+
     <!--<ListView
         android:id="@+id/lvContactos"
         android:layout_width="match_parent"
@@ -16,7 +20,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvContactos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/miActionBar"
         />
 
 

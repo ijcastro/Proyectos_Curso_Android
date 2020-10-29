@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbarElevacion">4dp</dimen>
+    <dimen name="cvCornerRadius">16dp</dimen>
+    <dimen name="cvMarginBottom">2dp</dimen>
+    <dimen name="ibLike">40dp</dimen>
+    <dimen name="tvNomMasc">35dp</dimen>
+    <dimen name="etRaiting">35dp</dimen>
+</resources>

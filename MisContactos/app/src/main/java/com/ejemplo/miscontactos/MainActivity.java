@@ -1,6 +1,8 @@
 package com.ejemplo.miscontactos;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,10 +20,16 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Contacto> contactos;
     private RecyclerView listaContactos;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar miActionBar = (Toolbar)findViewById(R.id.miActionBar);
+        setSupportActionBar(miActionBar);
 
         listaContactos = (RecyclerView)findViewById(R.id.rvContactos);
 
@@ -65,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void inicializarAdaptador(){
-        ContactoAdaptador adaptador = new ContactoAdaptador(contactos);
+        ContactoAdaptador adaptador = new ContactoAdaptador(contactos, this);
         listaContactos.setAdapter(adaptador);
-        
+
     }
 }

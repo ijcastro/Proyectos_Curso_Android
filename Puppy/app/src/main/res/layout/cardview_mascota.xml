@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvMascota"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/cvMarginBottom"
+    app:cardCornerRadius="@dimen/cvCornerRadius">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivMascotaContacto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/puppy1"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            >
+
+            <ImageButton
+                android:id="@+id/ibLike"
+                android:layout_width="@dimen/ibLike"
+                android:layout_height="@dimen/ibLike"
+                android:background="@mipmap/dog_bone"
+                android:layout_weight="1"
+                android:layout_marginEnd="25dp"/>
+
+            <TextView
+                android:id="@+id/tvNombreMascota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvNombreMascota"
+                android:textSize="@dimen/tvNomMasc"
+                android:textStyle="italic"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_marginEnd="25dp"/>
+
+            <EditText
+                android:id="@+id/etRaiting"
+                android:layout_width="@dimen/etRaiting"
+                android:layout_height="@dimen/etRaiting"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_marginEnd="25dp"/>
+
+            <ImageView
+                android:id="@+id/ivConteoLike"
+                android:layout_width="@dimen/ibLike"
+                android:layout_height="@dimen/ibLike"
+                android:layout_gravity="right"
+                android:background="@mipmap/dogbonedeconteo"
+                android:layout_weight="1"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

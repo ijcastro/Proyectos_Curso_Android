@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MascotasFavoritos"
+            android:parentActivityName=".MascotasListado"
+            android:label="Mis Favoritos">
+        </activity>
+        <activity android:name=".MascotasListado"
+            android:parentActivityName=".MainActivity"
+            android:label="Mi Listado De Mascotas" >
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

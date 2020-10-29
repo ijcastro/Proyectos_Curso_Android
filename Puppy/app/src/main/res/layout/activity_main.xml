@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/logopuppy_9" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/botonIngreso"
         android:layout_width="245dp"
         android:layout_height="48dp"
         android:layout_marginBottom="40dp"

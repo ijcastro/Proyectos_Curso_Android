@@ -7,6 +7,10 @@
     android:orientation="vertical"
     tools:context=".DetalleContacto">
 
+    <include android:id="@+id/miActionBar"
+        layout="@layout/actionbar">
+    </include>
+
     <TextView
         android:id="@+id/tvNombreContacto"
         android:layout_width="wrap_content"
