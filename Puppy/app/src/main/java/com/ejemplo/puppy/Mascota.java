@@ -1,5 +1,7 @@
 package com.ejemplo.puppy;
 
+import android.view.View;
+
 public class Mascota {
     //Atributos:
     private String nombreMascota;
@@ -13,6 +15,12 @@ public class Mascota {
         this.nombreMascota = nombreMascota;
         this.imagenMascota = imagenMascota;
         this.botonLike = botonLike;
+        this.cantLikes = cantLikes;
+        this.fotoLikes = fotoLikes;
+    }
+
+    public Mascota(int imagenMascota, int cantLikes, int fotoLikes){
+        this.imagenMascota = imagenMascota;
         this.cantLikes = cantLikes;
         this.fotoLikes = fotoLikes;
     }
@@ -56,4 +64,13 @@ public class Mascota {
     public void setFotoLikes(int fotoLikes) {
         this.fotoLikes = fotoLikes;
     }
+
+    public int contarLikes(View v){
+        int aux = 0;
+        if(v.callOnClick()){
+            aux =+ 1;
+        }
+        return aux;
+    }
+
 }

@@ -3,4 +3,19 @@
     <string name="titulo">Puppy App</string>
     <string name="BottomButton">Ingresar</string>
     <string name="tvNombreMascota">Mascota</string>
+    <string name="mContacto">Contacto</string>
+    <string name="mAcercaDe">Acerca De</string>
+    <string name="etCorreo">Correo</string>
+    <string name="etNombre">Nombre Completo</string>
+    <string name="etMensaje">Mensaje</string>
+    <string name="btnEnviar">Enviar Comentario</string>
+    <string name="tvAcercaDe">Desarrollador: Ignacio Joaquín Castro
+    Argentino, nacido en Julio/1988
+    Entusiasta, divertido, amante del café, a veces chef.
+    Por más consultas sobre mí, gmail a disposición.
+    Personal site en construcción</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tvNombreFavorito">Napoleón</string>
+
 </resources>

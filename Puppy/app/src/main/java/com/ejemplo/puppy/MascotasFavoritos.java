@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.ejemplo.puppy.adapters.MascotaAdaptador;
+
 import java.util.ArrayList;
 
 public class MascotasFavoritos extends AppCompatActivity {
@@ -36,11 +38,11 @@ public class MascotasFavoritos extends AppCompatActivity {
 
     public void inicializarListaMascotas(){
         mascotas = new ArrayList<>();
-        mascotas.add(new Mascota("Napo", R.drawable.puppy1, R.mipmap.dog_bone, R.id.etRaiting, R.mipmap.dog_bone_de_conteo));
-        mascotas.add(new Mascota("Buda", R.drawable.puppy2, R.mipmap.dog_bone, R.id.etRaiting, R.mipmap.dog_bone_de_conteo));
-        mascotas.add(new Mascota("Penny", R.drawable.puppy3, R.mipmap.dog_bone, R.id.etRaiting, R.mipmap.dog_bone_de_conteo));
-        mascotas.add(new Mascota("Bunda", R.drawable.puppy4, R.mipmap.dog_bone, R.id.etRaiting, R.mipmap.dog_bone_de_conteo));
-        mascotas.add(new Mascota("Chiquita", R.drawable.puppy5, R.mipmap.dog_bone, R.id.etRaiting, R.mipmap.dog_bone_de_conteo));
+        mascotas.add(new Mascota("Napo", R.drawable.puppy1, R.mipmap.dog_bone, R.id.tvRaiting, R.mipmap.dog_bone_de_conteo));
+        mascotas.add(new Mascota("Buda", R.drawable.puppy2, R.mipmap.dog_bone, R.id.tvRaiting, R.mipmap.dog_bone_de_conteo));
+        mascotas.add(new Mascota("Penny", R.drawable.puppy3, R.mipmap.dog_bone, R.id.tvRaiting, R.mipmap.dog_bone_de_conteo));
+        mascotas.add(new Mascota("Bunda", R.drawable.puppy4, R.mipmap.dog_bone, R.id.tvRaiting, R.mipmap.dog_bone_de_conteo));
+        mascotas.add(new Mascota("Chiquita", R.drawable.puppy5, R.mipmap.dog_bone, R.id.tvRaiting, R.mipmap.dog_bone_de_conteo));
 
     }
 

@@ -9,14 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MascotasFavoritos"
-            android:parentActivityName=".MascotasListado"
-            android:label="Mis Favoritos">
-        </activity>
-        <activity android:name=".MascotasListado"
-            android:parentActivityName=".MainActivity"
-            android:label="Mi Listado De Mascotas" >
-        </activity>
+        <activity android:name=".menus.AcercaDe"></activity>
+        <activity android:name=".menus.Contacto" />
+        <activity
+            android:name=".MascotasFavoritos"
+            android:label="Mis Favoritos"
+            android:parentActivityName=".MascotasListado" />
+        <activity
+            android:name=".MascotasListado"
+            android:label="Mi Listado De Mascotas"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

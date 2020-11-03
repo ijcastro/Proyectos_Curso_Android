@@ -1,44 +1,41 @@
 package com.ejemplo.miscontactos;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+
+import com.ejemplo.miscontactos.adapters.ContactoAdaptador;
+import com.ejemplo.miscontactos.adapters.PageAdapter;
+import com.ejemplo.miscontactos.fragments.PerfilFragment;
+import com.ejemplo.miscontactos.fragments.RecyclerViewFragment;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     //Atributos:
-    ArrayList<Contacto> contactos;
-    private RecyclerView listaContactos;
 
-
-
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar miActionBar = (Toolbar)findViewById(R.id.miActionBar);
-        setSupportActionBar(miActionBar);
+        /*Toolbar miActionBar = (Toolbar)findViewById(R.id.miActionBar);
+        setSupportActionBar(miActionBar);*/
 
-        listaContactos = (RecyclerView)findViewById(R.id.rvContactos);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        tabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        listaContactos.setLayoutManager(llm);
-        inicializarListaContactos();
-        inicializarAdaptador();
 
         /*ArrayList<String> nombres = new ArrayList<>();
         for (Contacto x:contactos) {
@@ -60,21 +57,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
+        if(toolbar != null){
+            setSupportActionBar(toolbar);
+        }
 
-
-    }
-
-    public void inicializarListaContactos(){
-        contactos = new ArrayList<>();
-        contactos.add(new Contacto("Anahi Salgado", "77779999", "anahi@gmail.com", R.drawable.contacto1));
-        contactos.add(new Contacto("Pedro Sanchez", "88882222", "pedro@gmail.com", R.drawable.contacto2));
-        contactos.add(new Contacto("Mireya Martinez", "33331111", "mireya@gmail.com", R.drawable.contacto3));
-        contactos.add(new Contacto("Juan Lopez", "44442222", "juan@gmail.com", R.drawable.contacto4));
-    }
-
-    public void inicializarAdaptador(){
-        ContactoAdaptador adaptador = new ContactoAdaptador(contactos, this);
-        listaContactos.setAdapter(adaptador);
+        setUpViewPager();
 
     }
+
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new PerfilFragment());
+        return fragments;
+    }
+
+    private void setUpViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(),
+                FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, agregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_contacts);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_persons);
+    }
+
+
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mAbout"
+        android:title="@string/mAbout"
+        android:orderInCategory="1">
+    </item>
+    <item
+        android:id="@+id/mSettings"
+        android:title="@string/mSettings"
+        android:orderInCategory="2">
+    </item>
+    <item
+        android:id="@+id/mRefresh"
+        android:title="@string/mRefresh"
+        android:icon="@mipmap/baseline_autorenew_black_18dp"
+        app:showAsAction="always" >
+    </item>
+</menu>

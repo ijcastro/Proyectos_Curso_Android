@@ -1,4 +1,4 @@
-package com.ejemplo.miscontactos;
+package com.ejemplo.miscontactos.adapters;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.ejemplo.miscontactos.Contacto;
+import com.ejemplo.miscontactos.DetalleContacto;
+import com.ejemplo.miscontactos.R;
 
 import java.util.ArrayList;
 

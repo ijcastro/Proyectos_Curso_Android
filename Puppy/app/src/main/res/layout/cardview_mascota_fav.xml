@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvMascota"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/cvMarginBottom"
+    app:cardCornerRadius="@dimen/cvCornerRadius">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivMascotaContacto2"
+            android:layout_width="139dp"
+            android:layout_height="91dp"
+            android:layout_gravity="center"
+            android:src="@drawable/puppy1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tvRaiting2"
+                android:layout_width="@dimen/tvRaiting"
+                android:layout_height="@dimen/tvRaiting"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_marginEnd="25dp"/>
+
+            <ImageView
+                android:id="@+id/ivConteoLike2"
+                android:layout_width="@dimen/ibLike"
+                android:layout_height="@dimen/ibLike"
+                android:layout_gravity="center"
+                android:background="@mipmap/dogbonedeconteo"
+                android:layout_weight="1"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

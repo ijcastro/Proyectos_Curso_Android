@@ -46,10 +46,10 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="25dp"/>
 
-            <EditText
-                android:id="@+id/etRaiting"
-                android:layout_width="@dimen/etRaiting"
-                android:layout_height="@dimen/etRaiting"
+            <TextView
+                android:id="@+id/tvRaiting"
+                android:layout_width="@dimen/tvRaiting"
+                android:layout_height="@dimen/tvRaiting"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_marginEnd="25dp"/>

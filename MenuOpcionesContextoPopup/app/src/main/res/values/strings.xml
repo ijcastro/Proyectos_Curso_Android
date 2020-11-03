@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MenuOpcionesContextoPopup</string>
+    <string name="mAbout">About</string>
+    <string name="mSettings">Settings</string>
+    <string name="tvAbout">About</string>
+    <string name="tvSettings">Settings</string>
+    <string name="mEditar">Editar</string>
+    <string name="mEliminar">Eliminar</string>
+    <string name="tvNombre">Ignacio Castro</string>
+    <string name="mView">View Image</string>
+    <string name="mViewDetails">View Image Details</string>
+    <string name="mRefresh">Refresh</string>
+</resources>
