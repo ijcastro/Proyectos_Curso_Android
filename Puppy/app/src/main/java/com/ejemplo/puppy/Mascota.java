@@ -4,13 +4,14 @@ import android.view.View;
 
 public class Mascota {
     //Atributos:
+    private int id;
     private String nombreMascota;
     private int imagenMascota;
     private int botonLike;
     private int cantLikes;
     private int fotoLikes;
 
-
+    //Constructor por parámetros:
     public Mascota(String nombreMascota, int imagenMascota, int botonLike, int cantLikes, int fotoLikes){
         this.nombreMascota = nombreMascota;
         this.imagenMascota = imagenMascota;
@@ -18,11 +19,15 @@ public class Mascota {
         this.cantLikes = cantLikes;
         this.fotoLikes = fotoLikes;
     }
-
+    //Constructor por parámetros:
     public Mascota(int imagenMascota, int cantLikes, int fotoLikes){
         this.imagenMascota = imagenMascota;
         this.cantLikes = cantLikes;
         this.fotoLikes = fotoLikes;
+    }
+    //Constructor por defecto:
+    public Mascota(){
+
     }
 
     public String getNombreMascota() {
@@ -65,12 +70,12 @@ public class Mascota {
         this.fotoLikes = fotoLikes;
     }
 
-    public int contarLikes(View v){
-        int aux = 0;
-        if(v.callOnClick()){
-            aux =+ 1;
-        }
-        return aux;
+
+    public int getId() {
+        return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 }

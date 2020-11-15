@@ -2,17 +2,25 @@ package com.ejemplo.miscontactos;
 
 public class Contacto {
     //Atributos:
+    private int id;
     private String nombre;
     private String telefono;
     private String email;
     private int foto;
+    private int likes;
 
-    //Constructor:
-    public Contacto(String nombre, String telefono, String email, int foto) {
+    //Constructor por parámetros:
+    public Contacto(String nombre, String telefono, String email, int foto, int likes) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.email = email;
         this.foto = foto;
+        this.likes = likes;
+    }
+
+    //Constructor por defecto:
+    public Contacto() {
+
     }
 
     //Getters y Setters:
@@ -47,4 +55,21 @@ public class Contacto {
     public void setFoto(int foto) {
         this.foto = foto;
     }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

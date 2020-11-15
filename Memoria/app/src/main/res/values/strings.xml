@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Memoria</string>
+    <string name="tvTitulo">Manejo Memoria</string>
+    <string name="etNombre">Nombre</string>
+    <string name="btnGuardarArchivo">Guardar Archivo</string>
+    <string name="etCorreo">Correo</string>
+    <string name="btnGuardarPreferencia">Guardar Preferencia</string>
+    <string name="btnMostrarPreferencia">Mostrar Preferencia</string>
+</resources>

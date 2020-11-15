@@ -36,18 +36,21 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MascotaViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MascotaViewHolder holder, int position) {
         final Mascota mascota = mascotas.get(position);
         holder.ivMascotaContacto.setImageResource(mascota.getImagenMascota());
         holder.tvNombreMascota.setText(mascota.getNombreMascota());
         holder.ivConteoLike.setImageResource(mascota.getFotoLikes());
+        holder.tvRaiting.setText(String.valueOf(mascota.getCantLikes()));
         holder.ibLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(activity, "Diste like a " + mascota.getNombreMascota() + "!", Toast.LENGTH_SHORT).show();
+                mascota.setCantLikes(mascota.getCantLikes() + 1);
+                holder.tvRaiting.setText(String.valueOf(mascota.getCantLikes()));
             }
         });
-        holder.tvRaiting.setText(String.valueOf(mascota.contarLikes(holder.ibLike)));
+
 
     }
 

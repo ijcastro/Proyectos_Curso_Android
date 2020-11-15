@@ -4,15 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
-import com.ejemplo.miscontactos.adapters.ContactoAdaptador;
 import com.ejemplo.miscontactos.adapters.PageAdapter;
-import com.ejemplo.miscontactos.fragments.PerfilFragment;
-import com.ejemplo.miscontactos.fragments.RecyclerViewFragment;
+import com.ejemplo.miscontactos.vistafragment.PerfilFragment;
+import com.ejemplo.miscontactos.vistafragment.RecyclerViewFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;

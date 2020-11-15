@@ -12,7 +12,7 @@
         android:layout_width="316dp"
         android:layout_height="46dp"
         android:layout_marginTop="84dp"
-        android:text="@string/etNombre"
+        android:hint="@string/etNombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/etNombre"
         app:layout_constraintTop_toBottomOf="@id/etNombre"
-        android:text="@string/etCorreo"
+        android:hint="@string/etCorreo"
         />
 
     <EditText
@@ -34,7 +34,7 @@
         android:layout_width="315dp"
         android:layout_height="184dp"
         android:layout_marginTop="52dp"
-        android:text="@string/etMensaje"
+        android:hint="@string/etMensaje"
         app:layout_constraintEnd_toEndOf="@id/etCorreo"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/etCorreo"

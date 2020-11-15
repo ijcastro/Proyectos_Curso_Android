@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ejemplo.miscontactos.Contacto;
 import com.ejemplo.miscontactos.DetalleContacto;
 import com.ejemplo.miscontactos.R;
+import com.ejemplo.miscontactos.db.ConstructorContactos;
 
 import java.util.ArrayList;
 
@@ -38,11 +39,12 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContactoViewHolder contactoViewHolder, int position) {
+    public void onBindViewHolder(@NonNull final ContactoViewHolder contactoViewHolder, int position) {
         final Contacto contacto = contactos.get(position);
         contactoViewHolder.ivFotoContacto.setImageResource(contacto.getFoto());
         contactoViewHolder.tvNombreContacto2.setText(contacto.getNombre());
         contactoViewHolder.tvTelefonoContacto2.setText(contacto.getTelefono());
+        contactoViewHolder.tvLikes.setText(String.valueOf(contacto.getLikes()) + " Likes");
 
         contactoViewHolder.ivFotoContacto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +63,9 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
             public void onClick(View v) {
                 Toast.makeText(activity, "Diste like a " + contacto.getNombre(),
                         Toast.LENGTH_SHORT).show();
+                ConstructorContactos constructorContactos = new ConstructorContactos(activity);
+                constructorContactos.darLikeContacto(contacto);
+                contactoViewHolder.tvLikes.setText(String.valueOf(constructorContactos.obtenerLikesContacto(contacto)));
             }
         });
     }
@@ -76,6 +81,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
         private TextView tvNombreContacto2;
         private TextView tvTelefonoContacto2;
         private ImageButton btnLike;
+        private TextView tvLikes;
 
         public ContactoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -83,6 +89,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
             tvNombreContacto2 = (TextView) itemView.findViewById(R.id.tvNombreContacto2);
             tvTelefonoContacto2 = (TextView) itemView.findViewById(R.id.tvTelefonoContacto2);
             btnLike = (ImageButton) itemView.findViewById(R.id.btnLike);
+            tvLikes = (TextView) itemView.findViewById(R.id.tvLikes);
         }
     }
 

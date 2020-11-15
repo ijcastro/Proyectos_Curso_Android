@@ -2,22 +2,16 @@ package com.ejemplo.puppy.menus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.ejemplo.puppy.database.Constantes;
+import com.ejemplo.puppy.JavaMailAPI;
 import com.ejemplo.puppy.R;
 
-import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import org.apache.commons.lang3.StringUtils;
 
 public class Contacto extends AppCompatActivity {
     private EditText etNombre;
@@ -38,7 +32,7 @@ public class Contacto extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                enviarMail();
+                sendEmail();
             }
         });
 
@@ -46,32 +40,35 @@ public class Contacto extends AppCompatActivity {
 
     }
 
-    public void enviarMail(){
-        //Inicializar sesión Jakarta Mail:
-        Properties prop = System.getProperties();
-        //Hacer un objeto de clase Session:
-        Session session = Session.getInstance(prop, null);
-        //Construir Mensaje y enviar:
-        MimeMessage msg = new MimeMessage(session);
+    /*public void enviarMail(){
         try {
-            msg.setFrom(new InternetAddress(String.valueOf(etCorreo)));
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-        try {
+            //Inicializar sesión Jakarta Mail:
+            Properties prop = System.getProperties();
+            //Hacer un objeto de clase Session:
+            Session session = Session.getInstance(prop, null);
+            //Construir Mensaje y enviar:
+            MimeMessage msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(etCorreo.getText().toString()));
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("nachoc_1025@hotmail.com", false));
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-        try {
-            msg.setSubject(String.valueOf(etMensaje));
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-        try {
+            msg.setText(etMensaje.getText().toString());
             Transport.send(msg);
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    }*/
+
+    //Mi método no camina, y el método sendEmail, sacado del py "Tarea Semana 4 - Mascotas", tampoco...
+
+    private void sendEmail() {
+        String toEmail = Constantes.email;
+        String message = this.formatMessage();
+        JavaMailAPI mail = new JavaMailAPI(this, toEmail, message);
+        mail.execute();
+    }
+
+    private String formatMessage(){
+        String contactEmail = etCorreo.getText().toString();
+        String message = etMensaje.getText().toString();
+        return StringUtils.join(contactEmail, "\n", message);
     }
 }

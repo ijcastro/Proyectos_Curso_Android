@@ -18,21 +18,24 @@
             android:layout_height="wrap_content"
             android:src="@drawable/jumping_woman"/>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            >
 
             <ImageButton
                 android:id="@+id/btnLike"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:background="@mipmap/icons8_thumbs_up_48" />
+                android:background="@mipmap/icons8_thumbs_up_48"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true">
 
                 <TextView
                     android:id="@+id/tvNombreContacto2"
@@ -51,7 +54,17 @@
 
             </LinearLayout>
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/tvLikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvLikes"
+                android:textSize="@dimen/tvNombreContacto2"
+                android:textStyle="bold"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
 
