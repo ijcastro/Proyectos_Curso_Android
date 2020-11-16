@@ -1,4 +1,4 @@
-package com.ejemplo.puppy.fragments;
+package com.ejemplo.puppy.vistafragments;
 
 import android.os.Bundle;
 

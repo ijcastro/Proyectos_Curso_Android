@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -16,10 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.ejemplo.puppy.adapters.MascotaAdaptador;
 import com.ejemplo.puppy.adapters.ViewPageAdapter;
-import com.ejemplo.puppy.fragments.FragmentFavorito;
-import com.ejemplo.puppy.fragments.FragmentListado;
+import com.ejemplo.puppy.vistafragments.FragmentFavorito;
+import com.ejemplo.puppy.vistafragments.FragmentListado;
 import com.ejemplo.puppy.menus.AcercaDe;
 import com.ejemplo.puppy.menus.Contacto;
 import com.google.android.material.tabs.TabLayout;

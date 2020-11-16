@@ -5,12 +5,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.ejemplo.puppy.Mascota;
 
 import java.util.ArrayList;
+
+import static android.widget.Toast.makeText;
 
 public class BaseDatos extends SQLiteOpenHelper {
     //Atributos:
@@ -31,6 +34,11 @@ public class BaseDatos extends SQLiteOpenHelper {
                 Constantes.TABLA_MASCOTAS_CANTLIKES + " INTEGER, " +
                 Constantes.TABLA_MASCOTAS_FOTOLIKES + " INTEGER" + ")";
 
+        String queryCrearTablaMascotasLikes = "CREATE TABLE " + Constantes.TABLA_MASCOTAS_LIKES+ "(" +
+                Constantes.TABLA_MASCOTAS_LIKES_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                Constantes.TABLA_MASCOTAS_LIKES_MASCOTA + " INTEGER, " +
+                Constantes.TABLA_MASCOTAS_LIKES_CANTLIKES + " INTEGER" + ")";
+
         String queryCrearTablaMascotasFav = "CREATE TABLE " + Constantes.TABLA_MASCOTAS_FAV + "(" +
                 Constantes.TABLA_MASCOTAS_FAV_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 Constantes.TABLA_MASCOTAS_FAV_NOMBRE + " TEXT, " +
@@ -42,6 +50,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         db.execSQL(queryCrearTablaMascotas);
         db.execSQL(queryCrearTablaMascotasFav);
+        db.execSQL(queryCrearTablaMascotasLikes);
     }
 
     @Override
@@ -63,6 +72,12 @@ public class BaseDatos extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void insertarMascotaLikes(ContentValues contentValues){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.insert(Constantes.TABLA_MASCOTAS_LIKES, null, contentValues);
+        db.close();
+    }
+
     public ArrayList<Mascota> obtenerListaMascotas(){
         ArrayList<Mascota> mascotas = new ArrayList<>();
 
@@ -78,9 +93,43 @@ public class BaseDatos extends SQLiteOpenHelper {
             nuevaMascota.setBotonLike(registros.getInt(3));
             nuevaMascota.setCantLikes(registros.getInt(4));
             nuevaMascota.setFotoLikes(registros.getInt(5));
+
+            //Uso de tabla para obtener cantidad total de likes
+            String queryLikes = "SELECT COUNT(" + Constantes.TABLA_MASCOTAS_LIKES_CANTLIKES +
+                    ") as likes " + " FROM " + Constantes.TABLA_MASCOTAS_LIKES + " WHERE " +
+                    Constantes.TABLA_MASCOTAS_LIKES_MASCOTA + "=" + nuevaMascota.getId();
+            Cursor registrosLikes = db.rawQuery(queryLikes, null);
+            if (registrosLikes.moveToNext()){
+                nuevaMascota.setCantLikes(registrosLikes.getInt(0));
+            } else {
+                nuevaMascota.setCantLikes(0);
+            }
+
             mascotas.add(nuevaMascota);
         }
         db.close();
+        return mascotas;
+    }
+
+    public ArrayList<Mascota> obtenerListaMascotasFav(){
+        ArrayList<Mascota> mascotas = new ArrayList<>();
+
+        String query = "SELECT * FROM " + Constantes.TABLA_MASCOTAS + " ORDER BY " +
+                Constantes.TABLA_MASCOTAS_CANTLIKES + " DESC LIMIT 5";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor registros = db.rawQuery(query, null);
+
+        while(registros.moveToNext()){
+            Mascota mascotaFavorita = new Mascota();
+            mascotaFavorita.setId(registros.getInt(0));
+            mascotaFavorita.setNombreMascota(registros.getString(1));
+            mascotaFavorita.setImagenMascota(registros.getInt(2));
+            mascotaFavorita.setCantLikes(registros.getInt(3));
+            mascotaFavorita.setFotoLikes(registros.getInt(4));
+            mascotas.add(mascotaFavorita);
+        }
+        db.close();
+
         return mascotas;
     }
 }

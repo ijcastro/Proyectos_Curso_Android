@@ -21,4 +21,8 @@ public class Constantes {
     public static final String TABLA_MASCOTAS_FAV_CANTLIKES = "CantidadLikes";
     public static final String TABLA_MASCOTAS_FAV_FOTOLIKES = "FotoLikes";
 
+    public static final String TABLA_MASCOTAS_LIKES = "MascotasLikes";
+    public static final String TABLA_MASCOTAS_LIKES_ID = "ID";
+    public static final String TABLA_MASCOTAS_LIKES_MASCOTA = "IDMascota";
+    public static final String TABLA_MASCOTAS_LIKES_CANTLIKES = "CantidadLikes";
 }
